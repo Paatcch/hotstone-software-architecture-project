@@ -1,0 +1,189 @@
+//GUI to Domain
+⦁	[Already done] EndTurnTool
+⦁	[OK] HotSeatStateTool
+⦁	[OK] PlayCardTool: Finish mouseUp method by calling the domain code
+⦁	[OK] MinionAttackTool
+⦁	[OK] UsePowerTool
+
+//Domain to GUI
+⦁	[OK] Add the text figure for the shown player's power
+⦁	[OK] Add another message if the card has an effect
+⦁	[OK] Inform player of attack hero
+⦁	[OK] Inform player of used power
+⦁	[OK] When a card is drawn for player in turn, then add card to hand, refresh the hand Gfx
+⦁	[OK] When a card is drawn for opponent player, then update opponent's summary
+⦁	[OK] When something happens to a card, then update the stats of the card/minion
+⦁	[OK] If minion is removed from field, then remove the minion and refresh field
+⦁	[OK] On update hero then refresh the hero's stats
+
+//Transcription
+⦁	[OK] During a game, actions are transcribed (printed in console)
+
+//ObserverHandler
+⦁	[OK] When Findus plays card uno (with parameters (FINDUS, Uno, 0)), then onPlayCard is called with parameters (FINDUS, Uno, 0) from GameObserver
+⦁	[OK] When Findus ends his turn, then onChangeTurnTo(Player playerBecomingActive) is called there playerBecominActive = Peddersen
+⦁	[OK] When Findus, in his second turn, attacks peddersens dos card with card Uno, then onAttackCard(Player playerAttacking, Card attackingCard, Card defendingCard) is called from GameObserver where playerAttacking = FINDUS, attackingCard = Uno, defendingCard = Dos
+⦁	[OK] When Findus, in his second turn, attacks Peddersens Hero, using card Uno, then onAttackHero(Player playerAttacking, Card attackingCard) is called from GameObserver where playerAttacking = FINDUS, attackingCard = Uno
+⦁	[OK] When Findus in his first turn uses hero power, then UsePower(Player who) is called from GameObserver where who = FINDUS
+⦁	[OK] When Peddersens draws cuatro in turn two, then onCardDraw() is called with who = PEDDERSEN, drawnCard = quatro
+⦁	[OK] When Findus, in his second turn, attacks Peddeserns Uno card, using Dos, then onCardRemove(Player who, Card card) is called from GameObserver, where who = Peddersen, Card = Uno
+⦁	[OK] When it is Findus forth turn, then onGameWon(Player playerWinning) is called from GameObserver where playerWinning = FINDUS
+⦁	[OK] When findus, in his second turn, uses his Uno minion to attack Peddersens Dos minion, then onCardUpdate() is called from gameObserve twice with card =  Uno and with card = Dos
+⦁	[OK] When Findus Uno card becomes active in turn 3 then onCardUpdate() is called with card = Uno
+⦁	[OK] When Findus in his second turn attacks Peddersens Hero using Uno, then onCardUpdate() is called with card = Uno, due to it becomming inactive
+⦁	[OK] When findus in his first turn plays uno, and then ends his turn, and then peddersen ends his turn, then onHeroUpdate() is called where who = findus
+⦁	[OK] When findus plays uno card, then onHeroUpdate() is called where who = FINDUS
+⦁	[OK] When Findus in his second turn attacks Peddersens Hero using Uno, then onHeroUpdate() is called where who = PEDDERSEN
+⦁	[OK] When Findus uses hero power, then onHeroUpdate is called with parameter FINDUS
+⦁	[OK] When Findus does not have enough mana to use power in first turn, after playing dos card, then onUsePower is NOT called
+⦁	[OK] When it is Findus second turn and nothing has happened, then onGameWon() is NOT called
+
+
+//TestRandomChefHeroStrategy
+⦁	[OK] For 1000 games, then all strategies should appear at least once.
+
+//EtaStone
+⦁	[OK] Brown Rice deals one damage to Peddersen, when Findus plays the card
+
+//TestEffectDishDeckStone
+⦁	[OK] Brown rice effect uses changeHeroHealth(who, amount) with who = Peddersen and amount = -1
+⦁	[OK] Tomato Salad effect use changeMinionAttackPower(MutableCard card, int amount) with card = Brown-Rice and amount 1
+⦁	[OK] If findus' field has no other cards than this Tomato Salad then when findus tries to use this Tomato Salad's effect, then the useEffect() has no effect
+⦁	[OK] Poke Bowl effect use changeHeroHealth(who, amount) with who = Peddersen and amount = 2
+⦁	[OK] Noodle Soup effect uses drawCard(who) method where who = FINDUS
+⦁	[OK] Spring Rolls effect uses destroyMinion(card) where card=Brown-Rice
+⦁	[OK] If Peddersens field size is 0 when Findus tries to use Spring Rolls effect, then useEffect() has no effect
+⦁	[OK] Baked Salmon effect uses changeMinionAttackPower(MutableCard card, int amount) with card = Brown-Rice and amount 2
+⦁	[OK] If Peddersens field size is 0 when Findus tries to use Baked Salmon effect, then useEffect() has no effect
+
+//EpsilonStone
+⦁	[OK] Findus plays FrenchChef, who has power "Redwine" with description "Deal 2 damage to opponent minion"
+⦁	[OK] Pedderesn plays ItalianChef, who has power "Pasta" with description "Add 2 attack to minion"
+⦁	[OK] When Findus uses hero power in turn 3, and Peddersen has Tres in his field, then tres has health 1
+⦁	[OK] When Findus uses hero power in turn 5, and Peddersen has Tres and Uno in his field, then both outcomes of Tres has health 1 and Uno is dead happens least once for 100 games
+⦁	[OK] When Peddersen uses hero power in turn 2, and has uno in field, then uno has attack power 3
+⦁	[OK] When Peddersen uses hero power in turn 4, and has uno and dos in field, then only one gets affected
+⦁	[OK] When Findus uses hero power and Peddersen has no minions in field, then it has no effect
+⦁	[OK] When Peddersen uses hero power and he doen't have any minions in field, then it has no effect
+
+
+//ZetaStone
+⦁	[OK] At the end of round 4 and there are no winners in field, then Peddersen is winner
+⦁	[OK] At turn 21 and Peddersens health is 0, then Findus is winner
+
+//BetaStone
+⦁	[OK] When Peddersen tries to draw a card in turn number 9, he suffers a two health penalty as his deck is empty
+
+⦁	[OK] When it is turn 9, and no one have attacked then there currently is no winner
+⦁	[OK] When Findus health is 0 then Peddersen is winner
+⦁	[OK] When Findus health is -3 then Peddersen is winner
+⦁	[OK] When Peddersens health is 0 then Findus is winner
+⦁	[OK] When Peddersens health is -3 then Findus is winner
+
+⦁	[OK] When it's findus first turn, findus has 1 mana
+⦁	[OK] When it's findus second turn, findus has 2 mana
+⦁	[OK] When it's findus 8th turn, findus has 7 mana
+⦁	[OK] When it's peddersens second turn, peddersen has 2 mana
+
+//GammaStone
+⦁	[OK] In the beginning of round four, when neither have any minions in the field, then Peddersen is winner
+⦁	[OK] In the start of round four, when peddersen has no minions in field, and findus has uno in field, then findus is winner
+⦁	[OK] In the start of round four, when Findus has no minions in field, and Peddersen has uno in field, then Peddersen is winner
+⦁	[OK] In the beginning of round four, when both have minions in the field, no winner is returned
+⦁	[OK] In the end of round 3 (turn ...), there are no winners
+
+⦁	[OK] Findus hero type is ThaiChef with effectDescription "Deal 2 damage to opponent hero"
+⦁	[OK] Peddersens hero type is DanishChef with effectDescription "Summon Sovs card"
+⦁	[OK] When Findus in turn 1 uses hero power, then Peddersens health will be 19
+⦁	[OK] When Peddersen uses hero power in turn 2, his field size is 1, with attack = 1 and health = 1 and name = "Sovs"
+
+//DeltaStone
+⦁	[OK] In first turn, Findus has 5 mana
+⦁	[OK] Given a 100 games, then all cards in dish deck should appear at least once for Peddersens drawn card in turn two
+
+//DishDeckStrategy
+⦁	[OK] The deck consist of 18 cards
+⦁	[OK] The deck has two of each cards from the dish deck
+⦁	[OK] First card in findus deck, costs 1 mana
+⦁	[OK] The top card is about 50/50 "Brown rice" / "French fries" for 10000 builds
+⦁	[OK] Given a 100 decks, "Brown rice" / "French fries" / "Green salad" / "Tomato Salad" shows up at least once for the second card
+⦁	[OK] Given a 100 decks, "Brown rice" / "French fries" / "Green salad" / "Tomato Salad" / "Poke Bowl" / "Pumpkin Soup" / "Noodle Soup" shows up at least once for the second card
+⦁	[OK] Given a 100 decks, all dish deck cards should show up for 18th card
+
+//AlphaStone testList iteration 2
+
+⦁	[OK] Given an initialized game, Then Findus is player in turn
+⦁	[OK] When Findus ends its turn, Then it is Peddersen in turn
+⦁	[OK] When game starts Then Findus should have three cards in hand Tres at index 0, Dos at index 1, and Uno at index 2.
+⦁	[OK] When it's findus' second turn, then he has four cards in hand
+⦁	[OK] When it's Peddersens first turn, then he has four cards in hand
+⦁	[OK] When it's findus' second turn, then he has card Cuatro at index 0
+⦁	[OK] When it's Peddersens first turn, then he has card Cuatro at index 0
+⦁	[OK] At Findus third turn he draws Cinco from his deck
+⦁	[OK] At Pedersen second turn he draws Cinco from his deck (this was how it worked in the video)
+⦁	[OK] Given Card Dos Then it has attributes (2,2,2)
+⦁	[OK] Given card Tres then it has attribbutes (3,3,3)
+⦁	[OK] When it is Peddersens first turn Peddersen has a handsize of 4 and Findus has a handsize of 3
+⦁	[OK] When Findus plays a card, Then Peddersen still has 3 cards in his hand.
+⦁	[OK] When Findus plays a card his first turn, then Findus has two cards left.
+⦁	[OK] When Peddersen plays a card his first turn, then Peddersen has 3 cards left.
+⦁	[OK] When Findus plays Dos card in his first turn, Then his hand only include Uno and Tres
+⦁	[OK] When Findus plays Uno, his field size is 1
+⦁	[OK] When Peddersen plays Cuatro card in his first turn, Then his hand only include Uno, Dos and Tres.
+⦁	[OK] When Peddersen plays Uno at his first turn and plays Dos in his sencond turn Then his field size is 2
+⦁	[OK] When Findus plays Dos card, Then the Dos card is in his field.
+⦁	[OK] When Peddersen plays Cuatro card in his first turn, Then the Cuatro card is in his field.
+⦁	[OK] Findus wins after four rounds.
+⦁	[OK] Turn number is three at findus' second turn
+⦁	[OK] Turn number is four at peddersens second turn
+⦁	[OK] There is no winner after three rounds
+⦁	[OK] Findus and Peddersens hero type is "Baby"
+⦁	[OK] Hero effect Findus description is "Just cute"
+⦁	[OK] Hero effect Peddersen description is "Just cute"
+⦁	[OK] When Findus start his first turn his mana crystal is three
+⦁	[OK] When findus plays uno first, then he has two mana crystals
+⦁	[OK] When findus plays uno, then dos, then he has 0 mana crystals
+⦁	[OK] When findus plays uno, dos, tres in one turn then tres is not in his field as he doesn't have enough mana
+⦁	[OK] When findus plays uno, tres in one turn then status NOT_ENOUGH_MANA is returned for card tres
+⦁	[OK] When Peddersen plays uno, then dos, then he has 0 mana crystals
+⦁	[OK] When Peddersen plays uno, tres in one turn then status NOT_ENOUGH_MANA is returned for card tres
+⦁	[OK] When findus plays uno, status ok is returned
+⦁	[OK] When peddersen plays uno, status ok is returned
+⦁	[OK] When Findus plays uno in his first turn, then at the beginning of his second turn his mana crystal is reset to 3
+⦁	[OK] When Peddersen plays uno in his first turn, then at the beginning of his second turn his mana crystal is reset to 3
+⦁	[OK] When game start both heros health is 21
+⦁	[OK] When findus uses power, his mana is 1
+⦁	[OK] When peddersen uses power, his mana is 1
+⦁	[OK] When Findus has played dos and tries to use power in his first turn status NOT_ENOUGH_MANA is returned
+⦁	[OK] When findus uses power status OK is returned
+⦁	[OK] When Peddersen uses power status OK is returned
+⦁	[OK] When Findus has played dos and tries to use power in his first turn then his mana is still 1
+⦁	[OK] When Findus' minion Uno attacks Peddersens hero in turn 3, then Peddersen has 20 health
+⦁	[OK] When Peddersens minion Dos attacks Findus' hero in turn 4, then Findus has 19 health
+⦁	[OK] When Findus' minion Uno attacks Peddersens hero in turn 3, then it is allowed (Status.OK)
+⦁	[OK] When Peddersens minion Dos attacks Findus' hero in turn 4, then it is allowed (Status.OK)
+⦁	[OK] When findus first plays uno, then peddersen plays dos, and then in findus second turn his uno minion attacks peddersens dos minion and then dos minion now has 1 health and uno minion dies
+⦁	[OK] When Peddersens Dos attacks Findus' Tres, Dos dies and Tres has health 1
+⦁	[OK] When findus plays uno, then the uno card is inactive
+⦁	[OK] When findus plays uno in his first turn, then it is active on his second turn
+⦁	[OK] When findus attacks peddersen with uno first turn, peddersens health is still 21
+⦁	[OK] When findus attacks peddersens hero with uno first turn, then Status.ATTACK_NOT_ALLOWED_FOR_NON_ACTIVE_MINION is returned
+⦁	[OK] When peddersens tres attacks findus dos in second turn, then dos' health is still 2
+⦁	[OK] When peddersens tres attacks findus dos in second turn, then Status.ATTACK_NOT_ALLOWED_FOR_NON_ACTIVE_MINION is returned
+⦁	[OK] When Findus' minion Uno attacks Peddersens Dos minion in turn 3, then Status OK is returned
+⦁	[OK] When Findus' minion Uno attacks Peddersens Hero in turn 3, then Uno is inactive
+⦁	[OK] When Findus' minion Dos attacks Peddersens Uno minion in turn 3, then Dos is inactive
+⦁	[OK] When findus plays uno, then findus is the owner of uno
+⦁	[OK] When peddersen plays uno, then peddersen is the owner of uno
+⦁	[OK] When Findus tries to attack own dos minion using his uno minion, in turn three, then Status.ATTACK_NOT_ALLOWED_ON_OWN_MINION is returned
+⦁	[OK] When game starts, findus has a deck size of 4
+⦁	[OK] When peddersen starts first turn, his deck size is 3
+⦁	[OK] When game starts Findus is owner of Findus hero
+⦁	[OK] When game starts Peddersens is owner of Peddersens hero
+⦁	[OK] When it is peddersens turn, and findus tries to attack peddersen card, then Status.NOT_PLAYER_IN_TURN is returned
+⦁	[OK] When it is findus second turn, and Peddersen tries to attack findus hero, then Status.NOT_PLAYER_IN_TURN is returned
+⦁	[OK] When it is Findus turn, and peddersen tries to use hero power, then Status.NOT_PLAYER_IN_TURN is returned
+⦁	[OK] When it is Peddersen turn, and Findus tries to play card uno, then Status.NOT_PLAYER_IN_TURN is returned
+⦁	[OK] When peddersen tries to attack findus hero with findus uno card in turn four, then Status.NOT_OWNER is returned
+⦁	[OK] When peddersen tries to attack findus card dos with findus uno card in turn four, then Status.NOT_OWNER is returned
+⦁	[OK] When peddersen tries to play uno card from findus hand in turn two, then Status.NOT_OWNER is returned
